@@ -1,22 +1,5 @@
 '''1. Дана последовательность натуральных чисел {aj}j=1...n (n<=10000).
 Если в последовательности есть хотя бы одно число, сумма цифр которого равна 14, упорядочить последовательность по неубыванию.'''
-
-
-
-
-
-
-def test(x):
-    suma=0
-    while x!=0:
-        suma+=x%10
-        x=x//10
-    if suma==14:
-        return True
-
-
-
 a=[i for i in range(1,10001)]
-if any(test(i)==True for i in a):
-    a=a[::-1]
-print(a)
+a=sorted(a) if any((sum(int(j) for j in str(i))==14 for i in a)) else a
+print(a[0:100])

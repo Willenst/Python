@@ -1,31 +1,14 @@
 '''3. Дана последовательность натуральных чисел {Aj}j=1...n (n<=10000).
  Удалить из последовательности числа, все цифры которых различны, а среди оставшихся продублировать числа-палиндромы.'''
 
+import random
 
-def right(x):
-    if x<10:
-        return True
-    while x!=0:
-        x1=x%10
-        x = x // 10
-        while x!=0:
-            x2=x%10
-            x=x//10
-            if x1==x2:
-                return True
+a=[random.randint(0,10000) for i in range(100)]
 
-def polindrom(x):
-    x1=str(x)
-    if x1==x1[::-1]:
-        return True
+a=[i for i in a if len(set(str(i)))!=len(str(i))]
 
 
-
-a=[i for i in range(1,10001) if right(i)==True]
-b=a[:]
-for i in a:
-    if polindrom(i)==True:
-        b.append(i)
-
-
-print(b)
+for i in range(len(a)):
+    if str(int(a[i])) == str(int(a[i]))[::-1]:
+        a[i]=(a[i],a[i])
+print(str(a).replace('(','').replace(')',''))
