@@ -10,7 +10,6 @@ last_word = ""
 for word in b:
     if word != last_word:
         count = [i for i, w in enumerate(b) if w == word]
-        print(count)
         if str(len(count))!=1:
             print(c)
             break
